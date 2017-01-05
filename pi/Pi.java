@@ -9,10 +9,10 @@ import java.awt.event.ActionListener;
 import java.awt.Font;
 
 public class Pi {
-    static int precision = 5;
+    static double precision = 5;
     static double radius = 10;
     static boolean run = false;
-    public static void pi(int prec, double rad) {
+    public static void pi(double prec, double rad) {
         double pi = 0; // current calculated pi
         double sc = 0; // semicircle (half) circumference
         double r = rad; // semicircle radius
@@ -101,7 +101,7 @@ public class Pi {
         precisionTFL.setLocation(120, 170);
         panel.add(precisionTFL);
         JTextField precisionTF = new JTextField();
-        precisionTF.setText("5");
+        precisionTF.setText("5.0");
         precisionTF.setSize(125, 26);
         precisionTF.setLocation(182, 183);
         panel.add(precisionTF);
@@ -121,13 +121,13 @@ public class Pi {
                     radiusTF.setText(Double.toString(radiusVal));
 
                     String precisionValText = precisionTF.getText();
-                    int precisionVal = 0;
+                    double precisionVal = 0;
                     try {
-                        precisionVal = Integer.parseInt(precisionValText);
+                        precisionVal = Double.parseDouble(precisionValText);
                     } catch (NumberFormatException nfe) {
                         precisionVal = 5;
                     }
-                    precisionTF.setText(Integer.toString(precisionVal));
+                    precisionTF.setText(Double.toString(precisionVal));
 
                     radius = radiusVal;
                     precision = precisionVal;
@@ -144,7 +144,7 @@ public class Pi {
     }
 
     private static void update(double i, double n, double r, double c, double pi) {
-        iterationL.setText("Iteration: " + ((int) i) + " of " + ((int) n));
+        iterationL.setText("Iteration: " + String.format("%.0f", i) + " of " +String.format("%.0f", n));
         radiusL.setText("Radius: " + r);
         circumferenceL.setText("Circumference: " + c);
         calcpiL.setText("Calculated π: " + pi);
