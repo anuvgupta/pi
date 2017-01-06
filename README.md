@@ -62,4 +62,6 @@ All of the below calculations use a circle of radius 10.
  10. Precision `10`
 
 ## GUI screenshot
-![screenshot](https://raw.githubusercontent.com/anuvgupta/pi/master/screenshot.png)
+![screenshotA](https://raw.githubusercontent.com/anuvgupta/pi/master/screenshotA.png)  
+![screenshotB](https://raw.githubusercontent.com/anuvgupta/pi/master/screenshotB.png)  
+![screenshotC](https://raw.githubusercontent.com/anuvgupta/pi/master/screenshotC.png)  
