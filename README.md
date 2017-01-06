@@ -30,8 +30,7 @@ Approximating π with Java
  - Within `n: (1, 10)`, the approximation of pi is generally correct to `n + (1 or 3)` decimal places
 
 ## samples
-All of the below calculations use a circle of radius 10.  
-`t` is the time in seconds of the calculation.  
+All of the below calculations use a circle of radius 10. `t` is the time in seconds of the calculation (time recorded on MacBook Pro 15-inch, 2016, 2.6 GHz Intel Core i7 processor, and 16 GB 2133 MHz LPDDR3 memory).  
  1. Precision `1`
     - `π ~= 3.1151059505583474`
     - `t = 0.001 sec`
