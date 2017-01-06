@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.JProgressBar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,7 +19,7 @@ public class Pi {
         double r = rad; // semicircle radius
         double n = Math.pow(10, prec); // precision (# of iterations)
         double preTime = System.currentTimeMillis(); // millitime before calculation
-        for (double i = 0; i < n; i++) { // sigma from i = 1 to n
+        for (double i = 0; i < n; i++) { // sigma from i = 0 to n
             double xi0 = 2 * r * i / n - r; // current x coordinate on circle
             double xi1 = 2 * r * (i + 1) / n - r; // next x coordinate on circle
             double fxi0 = Math.sqrt(r * r - xi0 * xi0); // current y coordinate on circle
@@ -31,31 +32,13 @@ public class Pi {
         double postTime = System.currentTimeMillis(); // millitime after calculation
         return new double[] { pi, (postTime - preTime) / 1000 };
     }
-
-    private static void bg() {
-        while (true) {
-            System.out.println("π");
-            if (run) {
-                double[] result = pi(precision, radius);
-                System.out.println("\n" +
-                    "Radius: " + radius + "\n" +
-                    "Precision: " + precision + "\n" +
-                    "Pi Approximation: " + result[0] + "\n" +
-                    "Seconds for calculation: " + result[1] + "\n"
-                );
-                run = false;
-            }
-            try {
-                Thread.sleep(500);
-            } catch (Exception e) { }
-        }
-    }
-
     static JLabel iterationL;
     static JLabel radiusL;
     static JLabel circumferenceL;
     static JLabel calcpiL;
     static JLabel mathpiL;
+    static JProgressBar bar;
+    static JLabel barL;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Approximating Pi");
@@ -97,27 +80,27 @@ public class Pi {
 
         JLabel radiusTFL = new JLabel("Radius: ");
         radiusTFL.setSize(200, 50);
-        radiusTFL.setLocation(120, 150);
+        radiusTFL.setLocation(120, 185);
         panel.add(radiusTFL);
         JTextField radiusTF = new JTextField();
         radiusTF.setText("10.0");
         radiusTF.setSize(139, 26);
-        radiusTF.setLocation(168, 163);
+        radiusTF.setLocation(168, 198);
         panel.add(radiusTF);
 
         JLabel precisionTFL = new JLabel("Precision: ");
         precisionTFL.setSize(200, 50);
-        precisionTFL.setLocation(120, 170);
+        precisionTFL.setLocation(120, 205);
         panel.add(precisionTFL);
         JTextField precisionTF = new JTextField();
         precisionTF.setText("5.0");
         precisionTF.setSize(125, 26);
-        precisionTF.setLocation(182, 183);
+        precisionTF.setLocation(182, 218);
         panel.add(precisionTF);
 
         JButton start = new JButton("Find π");
         start.setSize(250, 30);
-        start.setLocation(130, 220);
+        start.setLocation(130, 250);
         start.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     String radiusValText = radiusTF.getText();
@@ -144,12 +127,37 @@ public class Pi {
                 }
             });
         panel.add(start);
+        
+        bar = new JProgressBar(1, 1000000);
+        bar.setValue(0);
+        bar.setSize(230, 20);
+        bar.setLocation(115, 165);
+        panel.add(bar);
+        barL = new JLabel("0%");
+        barL.setSize(75, 50);
+        barL.setLocation(355, 149);
+        panel.add(barL);
 
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
-        bg();
+        while (true) {
+            System.out.println("π");
+            if (run) {
+                double[] result = pi(precision, radius);
+                System.out.println("\n" +
+                    "Radius: " + radius + "\n" +
+                    "Precision: " + precision + "\n" +
+                    "Pi Approximation: " + result[0] + "\n" +
+                    "Seconds for Calculation: " + result[1] + "\n"
+                );
+                run = false;
+            }
+            try {
+                Thread.sleep(500);
+            } catch (Exception e) { }
+        }
     }
 
     private static void update(double i, double n, double r, double c, double pi) {
@@ -157,5 +165,8 @@ public class Pi {
         radiusL.setText("Radius: " + r);
         circumferenceL.setText("Circumference: " + c);
         calcpiL.setText("Calculated π: " + pi);
+        double complete = i / n;
+        bar.setValue((int) (complete * ((double) bar.getMaximum())));
+        barL.setText(String.format("%.0f%%", complete * 100.0));
     }
 }
