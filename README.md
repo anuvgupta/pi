@@ -27,7 +27,7 @@ Approximating π with Java
     - The program defaults to a circle of radius 10
  - However, the precision textfield is very important. The integer `p` provided in that textfield determines the accuracy of the approximation to the known pi
     - `n` in the above calculations is `10^p`, and is also represented as the total number of "iterations" in the GUI
- - Within `n: (1, 10)`, the approximation of pi is generally correct to `n + 1 or 3` decimal places
+ - Within `n: (1, 10)`, the approximation of pi is generally correct to `n + (1 or 3)` decimal places
 
 ## samples
 All of the below calculations use a circle of radius 10.  
