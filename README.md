@@ -12,7 +12,7 @@ Approximating π with Java
     - As `n` increases, the number of points increases; the number of segments thus increases and more accurately represents the curve of a circle
     - As `n` approaches infinity, the number of points approaches infinity; the number of segments thus approaches infinity and the length of each segment becomes infinitely small, approaching 0, approaching the definition of a point
     - If `n` truly equaled infinity, the segments would in reality be an infinite number of points on the circumference of the half-circle. However, this infinite quantity is impossible to measure with a method/program such as this, so we allow `n` to equal a very large number
- 5. Use the distance formula/Pythagorean theorem to find the distance between one point on the circle and the next (length of the "i'th" segment)
+ 5. Use the distance formula/Pythagorean theorem to find the distance between one point on the circle and the next (length of the i'th segment)
     - In terms of f, x, and i: `d(i) = ((x(i) - x(i + 1))^2 + (f(x(i)) - f(x(i + 1)))^2)^0.5`
     - Partially substituted (in terms of f and i): `d(i) = ((((2 * r * i) / n - r) - ((2 * r * (i + 1)) / n - r))^2 + (f((2 * r * i) / n - r) - f((2 * r * (i + 1)) / n - r))^2)^0.5`
     - Fully substituted (in terms of i): `d(i) = ((((2 * r * i) / n - r) - ((2 * r * (i + 1)) / n - r))^2 + (f((2 * r * i) / n - r) - f((2 * r * (i + 1)) / n - r))^2)^0.5`
@@ -22,16 +22,16 @@ Approximating π with Java
  7. Divide `c` by the original diameter to get the final approximation for pi
     - `π ~= c / (2 * r)`
 
-# precision
+## precision
  - In the GUI, the radius textfield is irrelevant, as pi is a constant ratio for all circles of all sizes
     - The program defaults to a circle of radius 10
  - However, the precision textfield is very important. The integer `p` provided in that textfield determines the accuracy of the approximation to the known pi
     - `n` in the above calculations is `10^p`, and is also represented as the total number of "iterations" in the GUI
  - Within `n: (1, 10)`, the approximation of pi is generally correct to `n + 1 or 3` decimal places
 
-# samples
-All of the below calculations use a circle of radius `10`.
-`t` is the time in seconds of the calculation.
+## samples
+All of the below calculations use a circle of radius 10.  
+`t` is the time in seconds of the calculation.  
  1. Precision `1`
     - `π ~= 3.1151059505583474`
     - `t = 0.001 sec`
@@ -61,4 +61,5 @@ All of the below calculations use a circle of radius `10`.
     - `t = 0 sec`
  10. Precision `10`
 
-# GUI screenshot
+## GUI screenshot
+![screenshot](https://raw.githubusercontent.com/anuvgupta/pi/master/screenshot.png)
