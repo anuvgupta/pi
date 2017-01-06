@@ -1,3 +1,4 @@
+import java.awt.Font;
 import javax.swing.Timer;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -6,18 +7,18 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Font;
 
 public class Pi {
     static double precision = 5;
     static double radius = 10;
     static boolean run = false;
-    public static void pi(double prec, double rad) {
+    public static double[] pi(double prec, double rad) {
         double pi = 0; // current calculated pi
         double sc = 0; // semicircle (half) circumference
         double r = rad; // semicircle radius
         double n = Math.pow(10, prec); // precision (# of iterations)
-        for (double i = 1; i < n; i++) { // sigma from i = 1 to n
+        double preTime = System.currentTimeMillis(); // millitime before calculation
+        for (double i = 0; i < n; i++) { // sigma from i = 1 to n
             double xi0 = 2 * r * i / n - r; // current x coordinate on circle
             double xi1 = 2 * r * (i + 1) / n - r; // next x coordinate on circle
             double fxi0 = Math.sqrt(r * r - xi0 * xi0); // current y coordinate on circle
@@ -27,13 +28,21 @@ public class Pi {
             pi = sc / r; // calculate pi from reduced circumference/diameter formula
             update(i + 1, n, r, sc * 2, pi); // update window
         }
+        double postTime = System.currentTimeMillis(); // millitime after calculation
+        return new double[] { pi, (postTime - preTime) / 1000 };
     }
 
     private static void bg() {
         while (true) {
             System.out.println("π");
             if (run) {
-                pi(precision, radius);
+                double[] result = pi(precision, radius);
+                System.out.println("\n" +
+                    "Radius: " + radius + "\n" +
+                    "Precision: " + precision + "\n" +
+                    "Pi Approximation: " + result[0] + "\n" +
+                    "Seconds for calculation: " + result[1] + "\n"
+                );
                 run = false;
             }
             try {
@@ -49,7 +58,7 @@ public class Pi {
     static JLabel mathpiL;
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Finding Pi");
+        JFrame frame = new JFrame("Approximating Pi");
         frame.setSize(500, 320);
         frame.setResizable(false);
         JPanel panel = new JPanel();
