@@ -61,7 +61,7 @@ All of the below calculations use a circle of radius 10.
     - `t = 0 sec`
  10. Precision `10`
 
-## GUI screenshot
+## GUI screenshots
 ![screenshotA](https://raw.githubusercontent.com/anuvgupta/pi/master/screenshotA.png)  
 ![screenshotB](https://raw.githubusercontent.com/anuvgupta/pi/master/screenshotB.png)  
 ![screenshotC](https://raw.githubusercontent.com/anuvgupta/pi/master/screenshotC.png)  
