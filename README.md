@@ -3,19 +3,19 @@ Approximating π with Java
 
 ## method
  1. Define the function for a positive half-circle of constant radius `r`
-    - `f(x) = (r^2 - x^2)^0.5`
+    - `f(x) = √(r^2 - x^2)`
  2. Split the horizontal radius `r` into `n` number of x-coordinates
     - `x(i) = (2 * r * i) / n - r`
  3. Use `f(x)` to find the corresponding y-coordinates
-    - `f(x(i)) = (r^2 - ((2 * r * i) / n - r)^2)^0.5`
+    - `f(x(i)) = √(r^2 - ((2 * r * i) / n - r)^2)`
  4. Segments joining the points defined by these x and y coordinates form an approximation of the circumference of the half-circle
     - As `n` increases, the number of points increases; the number of segments thus increases and more accurately represents the curve of a circle
     - As `n` approaches infinity, the number of points approaches infinity; the number of segments thus approaches infinity and the length of each segment becomes infinitely small, approaching 0, approaching the definition of a point
     - If `n` truly equaled infinity, the segments would in reality be an infinite number of points on the circumference of the half-circle. However, this infinite quantity is impossible to measure with a method/program such as this, so we allow `n` to equal a very large number
  5. Use the distance formula/Pythagorean theorem to find the distance between one point on the circle and the next (length of the i'th segment)
-    - In terms of f, x, and i: `d(i) = ((x(i) - x(i + 1))^2 + (f(x(i)) - f(x(i + 1)))^2)^0.5`
-    - Partially substituted (in terms of f and i): `d(i) = ((((2 * r * i) / n - r) - ((2 * r * (i + 1)) / n - r))^2 + (f((2 * r * i) / n - r) - f((2 * r * (i + 1)) / n - r))^2)^0.5`
-    - Fully substituted (in terms of i): `d(i) = ((((2 * r * i) / n - r) - ((2 * r * (i + 1)) / n - r))^2 + (f((2 * r * i) / n - r) - f((2 * r * (i + 1)) / n - r))^2)^0.5`
+    - In terms of f, x, and i: `d(i) = √((x(i) - x(i + 1))^2 + (f(x(i)) - f(x(i + 1)))^2)`
+    - Partially substituted (in terms of f and i): `d(i) = √((((2 * r * i) / n - r) - ((2 * r * (i + 1)) / n - r))^2 + (f((2 * r * i) / n - r) - f((2 * r * (i + 1)) / n - r))^2)`
+    - Fully substituted (in terms of i): `d(i) = √((((2 * r * i) / n - r) - ((2 * r * (i + 1)) / n - r))^2 + (√(r^2 - ((2 * r * i) / n - r)^2) - √(r^2 - ((2 * r * (i + 1)) / n - r)^2))^2)`
  6. Sum the formula defined in step 5, beginning with `i = 0` and incrementing `i` to `n`
     - The resulting value is the circumference of the half-circle
     - Multiply by `2` to get the circumference `c` of a full circle of the same radius
