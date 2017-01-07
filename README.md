@@ -56,8 +56,8 @@ All of the below calculations use a circle of radius 10. `t` is the time in seco
     - `π ~= 3.141592653588962`
     - `t = 457.745 sec`
  9. Precision `9`
-    - `π ~= `
-    - `t = 0 sec`
+    - `π ~= 3.141592653588747`
+    - `t = 48855.594 sec`
  10. Precision `10`
 
 ## GUI screenshots
