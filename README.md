@@ -1,6 +1,6 @@
-# JTrump pages
-Project website for [JTrump](https://github.com/anuvgupta/JTrump)  
-&nbsp;&nbsp;*Check it out at [anuv.me/JTrump](http://anuv.me/JTrump)*  
+# pi pages
+Project website for [pi](https://github.com/anuvgupta/pi)  
+&nbsp;&nbsp;*Check it out at [github.anuv.me/pi](http://anuv.me/pi)*  
 &nbsp;    
 Libraries Used  
 &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;[jQuery](https://jquery.com/) - v1.12.4  
