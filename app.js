@@ -1,14 +1,17 @@
 var app = {
     block: Block('div', 'app'),
     username: 'anuvgupta',
+    name: 'anuv',
     reponame: 'pi',
-    reponame2: 'pi'
+    reponame2: 'pi',
+    reponame3: 'pi',
+    dashedreponame: 'pi'
 };
 app.repourl = 'https://github.com/' + app.username + '/' + app.reponame;
 
 // display window
 $(document).ready(function () {
-    document.title = app.reponame2;
+    document.title = app.reponame3;
     app.block.load(function () {
         var content = app.block.child('content');
         // load markdown from github readme

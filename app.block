@@ -137,7 +137,6 @@ app
                 margin-bottom 20px
                 margin-top 20px
                 font 120px myCenturyGothic
-                text-transform none
             @query window width >= 550
                 css
                     font-size 120px
@@ -147,7 +146,9 @@ app
                     font-size 100px
                     margin-bottom 30px
         text author
-            val by Anuv
+            {
+                block.html('by ' + app.name);
+            }
             css
                 display block
                 margin-top -20px
@@ -168,7 +169,7 @@ app
                 {
                     if (event.detail.noscroll != true) {
                         $(document.body).animate({
-                            scrollTop: $('#' + app.reponame).offset().top + 'px'
+                            scrollTop: $('#' + app.dashedreponame).offset().top + 'px'
                         }, 600);
                         event.stopPropagation();
                     }
@@ -221,7 +222,7 @@ app
                 html <h1>source code</h1>
             text textA
                 {
-                    block.html("View " + app.reponame2 + " source at&nbsp;");
+                    block.html("View " + app.reponame3 + " source at&nbsp;");
                 }
             text textB
                 {
@@ -247,7 +248,7 @@ app
                     div content
                         text text
                             {
-                                block.html(app.reponame2 + ' on GitHub');
+                                block.html(app.reponame3 + ' on GitHub');
                             }
                             css
                                 font-weight bold
@@ -273,7 +274,7 @@ app
                 val 2
             text textD
                 {
-                    block.html(app.reponame2 + ' was created and is maintained by&nbsp;');
+                    block.html(app.reponame3 + ' was created and is maintained by&nbsp;');
                 }
             text textE
                 {
