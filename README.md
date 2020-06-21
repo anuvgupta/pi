@@ -66,3 +66,7 @@ All of the below calculations use a circle of radius 10. `t` is the time in seco
 ![screenshotA](https://raw.githubusercontent.com/anuvgupta/pi/master/screenshotA.png)  
 ![screenshotB](https://raw.githubusercontent.com/anuvgupta/pi/master/screenshotB.png)  
 ![screenshotC](https://raw.githubusercontent.com/anuvgupta/pi/master/screenshotC.png)  
+
+
+&nbsp;  
+*2015*
