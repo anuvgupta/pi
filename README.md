@@ -1,5 +1,5 @@
 # pi
-Approximating π with Java
+SFHS Computer Science — Approximating π with Java
 
 ## method
  1. Define the function for a positive half-circle of constant radius `r`
